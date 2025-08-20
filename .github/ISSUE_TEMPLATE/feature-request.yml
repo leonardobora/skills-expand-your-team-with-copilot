@@ -1,0 +1,154 @@
+name: New Feature Request
+description: Request a new feature or capability for the activity management system
+title: "[Feature] "
+labels: ["enhancement", "feature-request"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for a new feature? Let us know what functionality would help make managing activities easier!
+        
+  - type: textarea
+    id: feature_description
+    attributes:
+      label: What New Feature Do You Want?
+      description: Clearly describe the feature you'd like to see added
+      placeholder: e.g., Ability to send email notifications to students when they're registered for an activity
+    validations:
+      required: true
+      
+  - type: textarea
+    id: problem_solving
+    attributes:
+      label: What Problem Would This Solve?
+      description: Explain what issue or challenge this feature would address
+      placeholder: e.g., Currently, students don't know they've been registered until they check manually, which leads to confusion
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: user_type
+    attributes:
+      label: Who Would Use This Feature?
+      description: Which users would benefit from this feature?
+      multiple: true
+      options:
+        - Teachers (managing activities)
+        - Students (participating in activities)
+        - Parents (tracking student activities)
+        - School administrators
+        - Activity coordinators
+    validations:
+      required: true
+      
+  - type: textarea
+    id: how_it_works
+    attributes:
+      label: How Should It Work?
+      description: Describe step-by-step how you imagine using this feature
+      placeholder: |
+        1. Teacher registers a student for an activity
+        2. System automatically sends email to student
+        3. Email includes activity details and first meeting date
+        4. Student receives confirmation
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How Important Is This Feature?
+      options:
+        - Critical - Needed for basic operations
+        - High - Would significantly improve workflow
+        - Medium - Would be helpful to have
+        - Low - Nice addition but not essential
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: feature_type
+    attributes:
+      label: What Type of Feature Is This?
+      description: Select all that apply
+      options:
+        - label: Communication/notifications
+        - label: Data management/reporting
+        - label: User interface improvement
+        - label: Administrative tools
+        - label: Student self-service
+        - label: Integration with other systems
+        - label: Security/privacy enhancement
+        - label: Performance/efficiency improvement
+    validations:
+      required: true
+      
+  - type: textarea
+    id: alternative_solutions
+    attributes:
+      label: Current Workaround
+      description: How do you currently handle this need? What's the current process?
+      placeholder: e.g., I have to manually call each student or send individual emails
+    validations:
+      required: false
+      
+  - type: textarea
+    id: success_criteria
+    attributes:
+      label: How Will We Know It's Working?
+      description: What would successful implementation of this feature look like?
+      placeholder: e.g., Students receive emails within 5 minutes of registration, email delivery rate is 95%+
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: considerations
+    attributes:
+      label: Important Considerations
+      description: What should we keep in mind when building this feature?
+      options:
+        - label: Must be simple for non-technical users
+        - label: Should work on mobile devices
+        - label: Needs to be secure and protect student privacy
+        - label: Should integrate with existing workflows
+        - label: Must be reliable and not fail often
+        - label: Should provide clear feedback to users
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional_details
+    attributes:
+      label: Additional Information
+      description: Any other details, examples, or context about this feature request
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Feature solves the identified problem effectively
+        - [ ] Implementation is user-friendly for non-technical staff
+        - [ ] Works consistently across different devices and browsers
+        - [ ] Integrates well with existing system functionality
+        - [ ] Includes appropriate error handling and user feedback
+        - [ ] Maintains system security and data privacy
+        
+        ## Technical Implementation Considerations
+        New features may require changes to:
+        - Backend API endpoints (`src/backend/routers/`)
+        - Database schema (`src/backend/database.py`)
+        - Frontend user interface (`src/static/`)
+        - Authentication and permissions
+        - Data validation and error handling
+        
+        Consider these technical aspects:
+        - REST API design principles
+        - Mobile-responsive design
+        - Form validation and user feedback
+        - Database performance and data integrity
+        - Security and privacy protection
+        - Integration with existing codebase patterns

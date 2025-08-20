@@ -1,0 +1,195 @@
+name: Teacher Account Management
+description: Request help with teacher login, permissions, or account-related issues
+title: "[Account] "
+labels: ["enhancement", "authentication"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need help with teacher accounts, login issues, or permission changes? Use this template to request account-related assistance.
+        
+  - type: dropdown
+    id: request_type
+    attributes:
+      label: What Type of Account Help Do You Need?
+      description: Select the type of account assistance required
+      options:
+        - Create new teacher account
+        - Reset/change teacher password
+        - Fix login problems
+        - Update teacher information
+        - Remove/deactivate teacher account
+        - Change account permissions
+        - Password recovery assistance
+        - Other account issue (describe below)
+    validations:
+      required: true
+      
+  - type: input
+    id: teacher_username
+    attributes:
+      label: Teacher Username (if applicable)
+      description: Enter the username for the teacher account in question
+      placeholder: e.g., mrodriguez, jsmith
+    validations:
+      required: false
+      
+  - type: input
+    id: teacher_name
+    attributes:
+      label: Teacher's Full Name
+      description: Enter the teacher's display name
+      placeholder: e.g., Ms. Rodriguez, Mr. Smith
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: teacher_role
+    attributes:
+      label: Teacher Role/Permission Level
+      description: What level of access should this teacher have?
+      options:
+        - Regular teacher (can register/unregister students)
+        - Administrator (full access)
+        - Activity coordinator (limited access)
+        - Other (specify below)
+        - Not applicable to this request
+    validations:
+      required: false
+      
+  - type: textarea
+    id: issue_description
+    attributes:
+      label: Describe the Issue or Request
+      description: Provide details about the account problem or what needs to be done
+      placeholder: e.g., Ms. Rodriguez forgot her password and can't log in to register students for Art Club
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How Urgent Is This?
+      description: How quickly do you need this resolved?
+      options:
+        - Critical - Teacher can't do their job
+        - High - Needed for upcoming activity
+        - Medium - Should be fixed this week
+        - Low - When convenient
+    validations:
+      required: true
+      
+  - type: textarea
+    id: attempted_solutions
+    attributes:
+      label: What Have You Already Tried?
+      description: List any troubleshooting steps already attempted
+      placeholder: e.g., Tried different browsers, cleared cache, tried different passwords
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: account_activities
+    attributes:
+      label: Which Activities Does This Teacher Manage? (if applicable)
+      description: Select activities this teacher is responsible for
+      options:
+        - label: Art Club
+        - label: Drama Club
+        - label: Math Club
+        - label: Science Olympiad
+        - label: Chess Club
+        - label: Book Club
+        - label: Music Band
+        - label: Coding Club
+        - label: Sports Club
+        - label: Manga Maniacs
+        - label: Multiple activities
+        - label: All activities (administrator)
+        - label: Not applicable
+    validations:
+      required: false
+      
+  - type: dropdown
+    id: contact_method
+    attributes:
+      label: How Should We Follow Up?
+      description: Best way to provide the teacher with account information
+      options:
+        - Email to teacher directly
+        - Through school administration
+        - In-person assistance
+        - Phone call
+        - Other (specify below)
+    validations:
+      required: true
+      
+  - type: input
+    id: contact_info
+    attributes:
+      label: Contact Information
+      description: Email address or other contact method for follow-up
+      placeholder: teacher@mergington.edu
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: security_considerations
+    attributes:
+      label: Security Requirements
+      description: Important security considerations for this account
+      options:
+        - label: Verify teacher identity before account changes
+        - label: Use secure password requirements
+        - label: Enable account activity logging
+        - label: Limit access to specific activities only
+        - label: Standard security protocols apply
+    validations:
+      required: true
+      
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Any other relevant details about this account request
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Teacher account issue is resolved completely
+        - [ ] Teacher can successfully log in and access required features
+        - [ ] Account has appropriate permissions for their role
+        - [ ] Security best practices are followed
+        - [ ] Teacher receives clear instructions if needed
+        - [ ] Account information is properly documented
+        
+        ## Technical Implementation Notes
+        Teacher account management involves:
+        - Database operations on `teachers_collection` in `src/backend/database.py`
+        - Authentication handling in `src/backend/routers/auth.py`
+        - Password hashing and security measures
+        - Session management and validation
+        
+        Key components:
+        - User account creation/modification
+        - Password hashing with Argon2
+        - Authentication middleware
+        - Role-based access control
+        - Session validation endpoints
+        - Error handling for login issues
+        
+        Current teacher accounts structure:
+        ```python
+        {
+            "_id": "username",
+            "username": "username", 
+            "display_name": "Teacher Name",
+            "password": "hashed_password",
+            "role": "teacher"
+        }
+        ```

@@ -1,0 +1,106 @@
+name: General Question or Request
+description: Ask questions or make requests that don't fit other categories
+title: "[General] "
+labels: ["question"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have a question or request that doesn't fit the other templates? Use this form to get help.
+        
+  - type: dropdown
+    id: question_type
+    attributes:
+      label: What Type of Help Do You Need?
+      options:
+        - General question about how something works
+        - Help understanding how to use a feature
+        - Suggestion for improvement (not covered by other templates)
+        - Technical assistance
+        - Training or documentation request
+        - Other (describe below)
+    validations:
+      required: true
+      
+  - type: textarea
+    id: question_description
+    attributes:
+      label: Your Question or Request
+      description: Please describe what you need help with in detail
+      placeholder: e.g., How do I see which students are registered for multiple activities?
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: user_role
+    attributes:
+      label: What's Your Role?
+      description: This helps us provide the most relevant assistance
+      options:
+        - Teacher
+        - School administrator
+        - Activity coordinator
+        - Parent/guardian
+        - Student
+        - Other
+    validations:
+      required: true
+      
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any background information that would help us understand your question better
+      placeholder: e.g., I'm new to using this system, I need this for an upcoming event, etc.
+    validations:
+      required: false
+      
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: How Soon Do You Need an Answer?
+      options:
+        - Today (urgent)
+        - This week
+        - Next week
+        - No specific timeline
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: helpful_resources
+    attributes:
+      label: What Would Be Most Helpful?
+      description: Select what type of assistance would best answer your question
+      options:
+        - label: Step-by-step instructions
+        - label: Screenshots or visual guide
+        - label: Video tutorial
+        - label: Written documentation
+        - label: One-on-one assistance
+        - label: Training session
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Anything Else?
+      description: Any other information that might be relevant
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Response Guidelines
+        We'll respond to your question with:
+        - [ ] Clear, non-technical explanation appropriate for your role
+        - [ ] Step-by-step instructions when applicable
+        - [ ] Screenshots or examples if helpful
+        - [ ] Links to relevant documentation
+        - [ ] Follow-up support if needed
+        
+        If your question reveals a need for system improvements, we may create a separate issue to track that enhancement.

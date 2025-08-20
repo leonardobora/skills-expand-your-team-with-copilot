@@ -1,0 +1,136 @@
+name: UI/UX Improvement
+description: Suggest improvements to the user interface or user experience
+title: "[UI/UX] "
+labels: ["enhancement", "ui-ux"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Help us make the system better for teachers and students! Suggest improvements to the interface or user experience.
+        
+  - type: dropdown
+    id: improvement_area
+    attributes:
+      label: What Area Needs Improvement?
+      description: Which part of the interface could be better?
+      options:
+        - Overall page layout and design
+        - Mobile/tablet experience
+        - Activity cards and information display
+        - Search and filtering options
+        - Student registration process
+        - Teacher login and authentication
+        - Activity list organization
+        - Navigation and menu
+        - Colors, fonts, and visual design
+        - Accessibility (for users with disabilities)
+        - Other (describe below)
+    validations:
+      required: true
+      
+  - type: textarea
+    id: current_problem
+    attributes:
+      label: What's the Current Problem?
+      description: Describe what's difficult, confusing, or inefficient about the current design
+      placeholder: e.g., It's hard to find activities that meet on weekends, the text is too small on tablets, etc.
+    validations:
+      required: true
+      
+  - type: textarea
+    id: proposed_solution
+    attributes:
+      label: Suggested Improvement
+      description: How would you like it to work instead?
+      placeholder: e.g., Add a weekend filter button, make text larger on mobile devices, etc.
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: user_group
+    attributes:
+      label: Who Would Benefit?
+      description: Which users would this improvement help?
+      multiple: true
+      options:
+        - Teachers (managing registrations)
+        - Students (finding activities)
+        - Parents (helping students register)
+        - School administrators
+        - Users on mobile devices
+        - Users on desktop computers
+        - Users with accessibility needs
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: priority
+    attributes:
+      label: How Important Is This?
+      description: How much would this improvement help day-to-day use?
+      options:
+        - Critical - Makes system difficult to use
+        - Important - Would significantly improve experience
+        - Nice to have - Would be a helpful addition
+        - Low priority - Minor improvement
+    validations:
+      required: true
+      
+  - type: textarea
+    id: use_case
+    attributes:
+      label: Real-World Example
+      description: Describe a specific situation where this improvement would help
+      placeholder: e.g., When Mrs. Smith wants to register 5 students for Drama Club on her phone during lunch break...
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: design_considerations
+    attributes:
+      label: Design Considerations
+      description: What should be kept in mind for this improvement?
+      options:
+        - label: Must work well on mobile devices
+        - label: Should follow accessibility guidelines
+        - label: Keep it simple for non-technical users
+        - label: Maintain consistency with current design
+        - label: Consider users with slower internet connections
+        - label: Make it intuitive without training
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional_details
+    attributes:
+      label: Additional Details
+      description: Any other information about your suggestion
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Improvement enhances user experience for target user group
+        - [ ] Design is consistent with existing interface
+        - [ ] Works properly on desktop, tablet, and mobile devices
+        - [ ] Follows accessibility best practices
+        - [ ] Doesn't negatively impact other functionality
+        - [ ] Is intuitive for non-technical users
+        
+        ## Technical Implementation Notes
+        UI improvements typically involve changes to:
+        - `src/static/index.html` for structure changes
+        - `src/static/styles.css` for visual design updates  
+        - `src/static/app.js` for interactive functionality
+        
+        Consider these files and components:
+        - Activity cards and grid layout
+        - Filter and search controls
+        - Modal dialogs for registration
+        - Responsive design breakpoints
+        - Form styling and validation
+        - Loading states and feedback messages

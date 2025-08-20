@@ -1,0 +1,146 @@
+name: Modify Existing Activity
+description: Request changes to an existing activity (schedule, description, capacity, etc.)
+title: "[Activity] Modify activity: "
+labels: ["enhancement", "activity", "modification"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Request changes to an existing activity. Please provide specific details about what needs to be changed.
+        
+  - type: dropdown
+    id: activity_name
+    attributes:
+      label: Which Activity Needs Changes?
+      description: Select the activity you want to modify
+      options:
+        - Art Club
+        - Drama Club
+        - Math Club
+        - Science Olympiad
+        - Chess Club
+        - Book Club
+        - Music Band
+        - Coding Club
+        - Sports Club
+        - Manga Maniacs
+        - Other (specify in description)
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: changes_needed
+    attributes:
+      label: What needs to be changed?
+      description: Select all that apply
+      options:
+        - label: Activity description
+        - label: Meeting schedule (days/times)
+        - label: Maximum number of participants
+        - label: Activity name
+        - label: Remove/cancel the activity
+        - label: Other (specify in description)
+    validations:
+      required: true
+      
+  - type: textarea
+    id: new_description
+    attributes:
+      label: New Description (if changing)
+      description: Provide the new description for the activity
+      placeholder: Enter new description here...
+    validations:
+      required: false
+      
+  - type: dropdown
+    id: new_days
+    attributes:
+      label: New Meeting Days (if changing)
+      description: Select new days for the activity
+      multiple: true
+      options:
+        - Monday
+        - Tuesday
+        - Wednesday
+        - Thursday
+        - Friday
+        - Saturday
+        - Sunday
+    validations:
+      required: false
+      
+  - type: input
+    id: new_start_time
+    attributes:
+      label: New Start Time (if changing)
+      description: Use 24-hour format (e.g., 15:30 for 3:30 PM)
+      placeholder: "15:30"
+    validations:
+      required: false
+      
+  - type: input
+    id: new_end_time
+    attributes:
+      label: New End Time (if changing)
+      description: Use 24-hour format
+      placeholder: "17:00"
+    validations:
+      required: false
+      
+  - type: input
+    id: new_max_participants
+    attributes:
+      label: New Maximum Participants (if changing)
+      description: Enter the new participant limit
+      placeholder: "25"
+    validations:
+      required: false
+      
+  - type: input
+    id: new_activity_name
+    attributes:
+      label: New Activity Name (if renaming)
+      description: Enter the new name for the activity
+      placeholder: New Activity Name
+    validations:
+      required: false
+      
+  - type: textarea
+    id: reason_for_change
+    attributes:
+      label: Reason for Change
+      description: Why does this activity need to be modified?
+      placeholder: e.g., Room availability changed, more students interested, teacher schedule conflict
+    validations:
+      required: true
+      
+  - type: textarea
+    id: additional_details
+    attributes:
+      label: Additional Details
+      description: Any other information about the changes needed
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Changes are reflected in the activities list
+        - [ ] Existing participant registrations are preserved (unless removing activity)
+        - [ ] Schedule displays correctly in the interface
+        - [ ] Participant limits are enforced properly
+        - [ ] Changes work on both desktop and mobile
+        
+        ## Technical Implementation Notes
+        The activity data is stored in `src/backend/database.py` in the `initial_activities` dictionary. If changing the activity name, both the dictionary key and any references need to be updated. The schedule format should match existing patterns:
+        ```python
+        "schedule": "Days, Start Time - End Time",
+        "schedule_details": {
+            "days": ["Day1", "Day2"],
+            "start_time": "HH:MM",
+            "end_time": "HH:MM"
+        }
+        ```

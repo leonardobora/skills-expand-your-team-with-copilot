@@ -1,0 +1,151 @@
+name: Bug Report
+description: Report a problem with the activity management system
+title: "[Bug] "
+labels: ["bug"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Found a bug? Let us know so we can fix it! Please provide as much detail as possible.
+        
+  - type: dropdown
+    id: bug_area
+    attributes:
+      label: Where is the problem?
+      description: Which part of the system has the issue?
+      options:
+        - Student registration process
+        - Teacher login
+        - Activity display/filtering
+        - Mobile/tablet view
+        - Activity information (schedule, description)
+        - Participant management (adding/removing students)
+        - Search and filtering
+        - Page loading/performance
+        - Other (describe below)
+    validations:
+      required: true
+      
+  - type: textarea
+    id: bug_description
+    attributes:
+      label: What's Wrong?
+      description: Clearly describe what's not working
+      placeholder: e.g., When I try to register a student for Art Club, I get an error message...
+    validations:
+      required: true
+      
+  - type: textarea
+    id: steps_to_reproduce
+    attributes:
+      label: How to Reproduce the Problem
+      description: Step-by-step instructions to reproduce the issue
+      placeholder: |
+        1. Go to the main page
+        2. Click on 'Art Club'
+        3. Enter student email
+        4. Click 'Register'
+        5. Error appears
+    validations:
+      required: true
+      
+  - type: textarea
+    id: expected_behavior
+    attributes:
+      label: What Should Happen Instead?
+      description: Describe what you expected to happen
+      placeholder: The student should be successfully registered for the activity
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How Often Does This Happen?
+      options:
+        - Always (every time)
+        - Sometimes (intermittent)
+        - Only once
+        - Only with specific activities
+        - Only with certain students
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: device_type
+    attributes:
+      label: Device Type
+      description: What device are you using?
+      options:
+        - Desktop computer
+        - Laptop
+        - Tablet (iPad, Android tablet)
+        - Phone (iPhone, Android phone)
+        - Chromebook
+        - Other
+    validations:
+      required: true
+      
+  - type: input
+    id: browser
+    attributes:
+      label: Web Browser
+      description: Which browser are you using?
+      placeholder: e.g., Chrome, Safari, Firefox, Edge
+    validations:
+      required: true
+      
+  - type: textarea
+    id: error_message
+    attributes:
+      label: Error Message (if any)
+      description: Copy any error messages you see exactly as they appear
+      placeholder: Copy the exact error text here
+    validations:
+      required: false
+      
+  - type: input
+    id: student_email
+    attributes:
+      label: Student Email (if relevant)
+      description: If the issue involves a specific student, provide their email (we'll keep it confidential)
+      placeholder: student@mergington.edu
+    validations:
+      required: false
+      
+  - type: input
+    id: activity_name
+    attributes:
+      label: Activity Name (if relevant)
+      description: If the issue is with a specific activity, which one?
+      placeholder: e.g., Art Club, Math Club
+    validations:
+      required: false
+      
+  - type: textarea
+    id: additional_info
+    attributes:
+      label: Additional Information
+      description: Anything else that might help us fix this issue
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Bug is identified and root cause found
+        - [ ] Fix is implemented and tested
+        - [ ] Issue no longer occurs following the reproduction steps
+        - [ ] Fix doesn't break other functionality
+        - [ ] Works across different browsers and devices
+        
+        ## Technical Investigation Areas
+        - Check browser console for JavaScript errors
+        - Verify API endpoints are working correctly
+        - Test authentication flow for teacher login issues
+        - Validate form submission and data handling
+        - Check responsive design for mobile/tablet issues
+        - Review database operations for data consistency

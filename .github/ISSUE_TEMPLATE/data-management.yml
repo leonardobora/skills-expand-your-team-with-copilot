@@ -1,0 +1,170 @@
+name: Data Management Task
+description: Request help with managing activity data, participants, or generating reports
+title: "[Data] "
+labels: ["enhancement", "data-management"]
+assignees:
+  - Copilot
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Need help managing data, generating reports, or bulk operations? This template will help us understand your data needs.
+        
+  - type: dropdown
+    id: task_type
+    attributes:
+      label: What Type of Data Task Do You Need?
+      description: Select the type of data management help you need
+      options:
+        - Export participant lists
+        - Generate activity reports
+        - Bulk register multiple students
+        - Bulk remove students from activities
+        - Import activities from spreadsheet
+        - Clean up duplicate registrations
+        - Archive old activities
+        - View activity statistics
+        - Student participation tracking
+        - Other (describe below)
+    validations:
+      required: true
+      
+  - type: checkboxes
+    id: activities_involved
+    attributes:
+      label: Which Activities Are Involved?
+      description: Select the activities this request affects (select all that apply)
+      options:
+        - label: Art Club
+        - label: Drama Club
+        - label: Math Club
+        - label: Science Olympiad
+        - label: Chess Club
+        - label: Book Club
+        - label: Music Band
+        - label: Coding Club
+        - label: Sports Club
+        - label: Manga Maniacs
+        - label: All activities
+        - label: Other (specify below)
+    validations:
+      required: true
+      
+  - type: textarea
+    id: specific_request
+    attributes:
+      label: Detailed Request
+      description: Explain exactly what you need help with
+      placeholder: e.g., I need to export a list of all students in Drama Club with their email addresses to send to the drama teacher
+    validations:
+      required: true
+      
+  - type: dropdown
+    id: output_format
+    attributes:
+      label: What Format Do You Need? (if applicable)
+      description: How would you like to receive the data?
+      options:
+        - Excel/CSV spreadsheet
+        - PDF report
+        - Email list
+        - Printed list
+        - On-screen display
+        - Other (specify below)
+        - Not applicable
+    validations:
+      required: false
+      
+  - type: dropdown
+    id: urgency
+    attributes:
+      label: When Do You Need This?
+      options:
+        - Immediately (today)
+        - This week
+        - Next week
+        - End of month
+        - No specific deadline
+    validations:
+      required: true
+      
+  - type: textarea
+    id: data_details
+    attributes:
+      label: What Information Should Be Included?
+      description: Specify what data fields or information you need
+      placeholder: |
+        e.g., For each student include:
+        - Student name
+        - Email address
+        - Registration date
+        - Parent contact info
+    validations:
+      required: false
+      
+  - type: textarea
+    id: use_case
+    attributes:
+      label: How Will You Use This Data?
+      description: Tell us what you plan to do with the information so we can format it appropriately
+      placeholder: e.g., Send welcome emails to new participants, create name tags for an event, track attendance
+    validations:
+      required: true
+      
+  - type: input
+    id: student_count
+    attributes:
+      label: Approximate Number of Students (if known)
+      description: About how many students does this involve?
+      placeholder: e.g., 25 students, 100+ students
+    validations:
+      required: false
+      
+  - type: checkboxes
+    id: privacy_considerations
+    attributes:
+      label: Privacy and Access Requirements
+      description: Important considerations for handling student data
+      options:
+        - label: This data contains sensitive student information
+        - label: Data should only be shared with authorized teachers
+        - label: Parents should be notified of data use
+        - label: Data should be automatically deleted after use
+        - label: Standard privacy protections apply
+    validations:
+      required: true
+      
+  - type: textarea
+    id: additional_requirements
+    attributes:
+      label: Additional Requirements
+      description: Any other specifications, filters, or requirements
+      placeholder: e.g., Only students registered in the last 30 days, exclude students who haven't confirmed attendance
+    validations:
+      required: false
+      
+  - type: markdown
+    attributes:
+      value: |
+        ## Acceptance Criteria
+        - [ ] Data request is fulfilled accurately and completely
+        - [ ] Output format meets specified requirements
+        - [ ] Student privacy and data protection standards are maintained
+        - [ ] Data is delivered within requested timeframe
+        - [ ] Information is properly formatted and easy to use
+        - [ ] Any necessary authentication/authorization is implemented
+        
+        ## Technical Implementation Notes
+        Data management tasks typically involve:
+        - Database queries against `activities_collection` and participant data
+        - Data formatting and export functionality
+        - Proper handling of student privacy and FERPA compliance
+        - Authentication to ensure only authorized access
+        - Error handling for data integrity
+        
+        Common implementation patterns:
+        - New API endpoints for data export (`src/backend/routers/`)
+        - Database aggregation and filtering operations
+        - CSV/Excel generation libraries
+        - Teacher authentication for sensitive data access
+        - Bulk operation transaction handling
